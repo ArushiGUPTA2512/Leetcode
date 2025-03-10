@@ -1,14 +1,16 @@
 class Solution {
     public String reverseWords(String s) {
-        String[] words = s.trim().split("\\s+");
-        StringBuilder reversed = new StringBuilder();
-        
-        // Reverse the words and append them to StringBuilder
-        for (int i = words.length - 1; i >= 0; i--) {
+       String[] words = s.trim().split("\\s+");
+
+        // Use StringBuilder with initial capacity to avoid resizing
+        StringBuilder reversed = new StringBuilder(s.length());
+
+        // Append words in reverse order
+        for (int i = words.length - 1; i > 0; i--) {
             reversed.append(words[i]).append(" ");
         }
-        
-        // Remove the extra trailing space and return the result
-        return reversed.toString().trim();
+        reversed.append(words[0]); // Append last word without trailing space
+
+        return reversed.toString();
     }
 }

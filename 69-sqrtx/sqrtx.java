@@ -1,18 +1,11 @@
 class Solution {
     public int mySqrt(int x) {
-         if (x == 0 || x == 1) return x; // Base cases
+         if (x == 0) return 0; // Base case
 
-        int left = 1, right = x, ans = 0;
-
-        while (left <= right) {
-            int mid = left + (right - left) / 2; // Avoid overflow
-            if (mid <= x / mid) { // Instead of mid * mid to prevent overflow
-                ans = mid; // Store potential answer
-                left = mid + 1; // Search in the right half
-            } else {
-                right = mid - 1; // Search in the left half
-            }
+        long y = x; // Start with x as the initial guess
+        while (y * y > x) {
+            y = (y + x / y) / 2; // Newton's formula
         }
-        return ans; 
+        return (int) y; 
     }
 }

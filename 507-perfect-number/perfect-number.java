@@ -1,6 +1,6 @@
 class Solution {
     public boolean checkPerfectNumber(int num) {
-       if (num <= 1) {
+        if (num <= 1) {
             return false;
         }
 
@@ -17,5 +17,5 @@ class Solution {
         }
 
         return sum == num; 
-    }
+    } 
 }
